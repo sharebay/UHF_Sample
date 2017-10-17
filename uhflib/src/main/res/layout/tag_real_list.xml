@@ -239,11 +239,13 @@
 			android:orientation="vertical">
 
 		    <LinearLayout
+				android:id="@+id/show_bar_desc"
 		        android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp"
-				android:background="#ffdddddd" >
+				android:background="#ffdddddd"
+				android:visibility="invisible">
 					
   				<View
 			        android:layout_width="1dp"
@@ -347,6 +349,45 @@
 			        android:background="#BBBBBB" />
 		        
 		    </LinearLayout>
+			<LinearLayout
+				android:id="@+id/show_bar_tidy"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="3dp"
+				android:layout_marginRight="3dp"
+				android:background="#ffdddddd" >
+
+				<View
+					android:layout_width="1dp"
+					android:layout_height="match_parent"
+					android:background="#BBBBBB" />
+
+				<TextView
+					android:layout_width="50sp"
+					android:layout_height="wrap_content"
+					android:padding="2sp"
+					android:textSize="16sp"
+					android:textColor="#ff333333"
+					android:gravity="center"
+					android:singleLine="true"
+					android:text="序号" />
+
+				<View
+					android:layout_width="1dp"
+					android:layout_height="match_parent"
+					android:background="#BBBBBB" />
+
+				<TextView
+					android:layout_width="300sp"
+					android:layout_height="wrap_content"
+					android:padding="2sp"
+					android:textSize="16sp"
+					android:textColor="#ff333333"
+					android:gravity="center"
+					android:singleLine="true"
+					android:text="设备身份识别码" />
+
+			</LinearLayout>
 
 			<ListView
 				android:id="@+id/tag_real_list_view"

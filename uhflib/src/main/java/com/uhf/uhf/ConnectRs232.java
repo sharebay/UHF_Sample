@@ -16,6 +16,7 @@ import com.uhf.uhf.spiner.SpinerPopWindow;
 import com.uhf.uhf.spiner.AbstractSpinerAdapter.IOnItemSelectListener;
 
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.provider.Settings;
 import android.view.KeyEvent;
 import android.view.View;
@@ -66,17 +67,20 @@ public class ConnectRs232 extends Activity {
 
 	private Product mProduct;
 
+    private PowerManager pm = null;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.connect_rs232);
-		((UHFApplication) getApplication()).addActivity(this);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.connect_rs232);
+        ((UHFApplication) getApplication()).addActivity(this);
 
-		mSerialPortFinder = new SerialPortFinder();
+        mSerialPortFinder = new SerialPortFinder();
 
-		//gy.获取到所有的串口号+波特率
-		entries = mSerialPortFinder.getAllDevices();
-		entryValues = mSerialPortFinder.getAllDevicesPath();
+        //gy.获取到所有的串口号+波特率
+        entries = mSerialPortFinder.getAllDevices();
+        entryValues = mSerialPortFinder.getAllDevicesPath();
+
 
 		mConectButton = (TextView) findViewById(R.id.textview_connect);
 
@@ -177,6 +181,13 @@ public class ConnectRs232 extends Activity {
 				setBaudText(pos);
 			}
 		});
+
+		/*<--begin 20171017 gy delete */
+		/*//gy.add 20170901 增加电源管理
+		pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+		PowerManagerUtils.open(pm,2);
+		PowerManagerUtils.close(pm,0x0C);*/
+		/*--20171017 gy delete end-->*/
 	}
 
 	/*自定义的spinner弹出*/
@@ -262,6 +273,10 @@ public class ConnectRs232 extends Activity {
 	protected void onDestroy() {
 		super.onDestroy();
 
+        //gy.delete 20171017
+        /*//gy.add pm 20170901
+        PowerManagerUtils.close(pm,2);*/
+
 	}
 
 	private Product getProduct(Context context) {
@@ -291,7 +306,9 @@ public class ConnectRs232 extends Activity {
 		public boolean isInit;
 
 		public void fullPortAndBaud() {
-			if ("s50".equals(Type)) {
+
+            //gy.delete 20171017
+			/*if ("s50".equals(Type)) {
 				Port = 3;
 				Baud = 0;
 				isInit = true;
@@ -299,7 +316,11 @@ public class ConnectRs232 extends Activity {
 				Port = 2;
 				Baud = 0;
 				isInit = true;
-			}
+			}*/
+
+            Port = 2;
+            Baud = 0;
+            isInit = true;
 		}
 
 	}

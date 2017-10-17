@@ -9,8 +9,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -32,6 +35,11 @@ import java.util.List;
 import mylib.GyFunction;
 
 public class RFIDCaptureActivity extends Activity {
+
+    public static final String SCAN_RFID_RESULT = "rfid_result";//扫码返回结果（解析后的字符串）
+    public static final String SCAN_RFID_HEXCODE = "rfid_hex_code";//扫码结果 十六进制码（未解析）
+    public static final int PRE_LENGTH = 2;
+
     private Context mContext;
 
     private LocalBroadcastManager lbm;
@@ -53,6 +61,9 @@ public class RFIDCaptureActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rfidcapture);
         //Toast.makeText(this, "test="+ new GyFunction().getString(), Toast.LENGTH_SHORT).show();
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+        //getActionBar().setDisplayShowHomeEnabled(true);
+
         this.mContext = this;
         initView();
 
@@ -64,7 +75,32 @@ public class RFIDCaptureActivity extends Activity {
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId()==android.R.id.home){
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private void initView() {
+        //设置bar的样式
+        LinearLayout desc_bar = (LinearLayout) findViewById(R.id.show_bar_desc);
+        LinearLayout tidy_bar = (LinearLayout) findViewById(R.id.show_bar_tidy);
+        if (this.getResources().getBoolean(R.bool.use_tidy_bar_in_scan_face)){
+            desc_bar.setVisibility(View.GONE);
+            tidy_bar.setVisibility(View.VISIBLE);
+        }else {
+            desc_bar.setVisibility(View.VISIBLE);
+            tidy_bar.setVisibility(View.GONE);
+        }
+
         data = new ArrayList<InventoryBuffer.InventoryTagMap>();
 
         mTagRealList = (ListView) findViewById(R.id.tag_real_list_view);
@@ -77,16 +113,88 @@ public class RFIDCaptureActivity extends Activity {
             public void onItemClick(AdapterView<?> arg0, View arg1, int pos,
                                     long arg3) {
                 //gy.add
-                String strEpc = data.get(pos).strEPC;
+                ///解析前的十六进制数据
+                String strHexCode_Epc = data.get(pos).strEPC;
+                //解析后的字符数据
+                //String strEpc = getDecodedStr(data.get(pos).strEPC);
+
+                String strEpc ="";
+                if(EpcDataConvertUtils.isValidEPCSkipBlanks(data.get(pos).strEPC.replace(" ",""))){
+                    strEpc = EpcDataConvertUtils.getReadableDecodedEpcData(data.get(pos).strEPC);
+                }else {
+                    strEpc = "无效数据";
+                    Toast.makeText(mContext, "电子标签原始数据:"+strHexCode_Epc, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 Toast.makeText(mContext, "EPC 数据 :" + strEpc, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
-                intent.putExtra("epc_data",strEpc);
-                setResult(0,intent);
+                intent.putExtra(SCAN_RFID_RESULT,strEpc);
+                intent.putExtra(SCAN_RFID_HEXCODE,strHexCode_Epc);
+                setResult(1,intent);
 
                 RFIDCaptureActivity.this.finish();
             }
 
         });
+    }
+
+    //解析操作
+    private String getDecodedStr(String strHex) {
+        String strHexSkipBlanks = strHex.replace(" ","");
+        //格式规范性校验，校验不通过:1.十六进制数的长度是否为24，2.头两个二进制数是否小于或等于（24-2）
+        //strHexSkipBlanks.substring(0,2);
+        return getIDByEpcData(strHexSkipBlanks);
+    }
+    /**
+     * 把EPC上的Hex进制的字符转换成身份识别码
+     * 14-4e524942-21183916C030-00
+     * */
+    public String getIDByEpcData(String EPCData){
+        //获取有效数据位数
+        int validLengthHex = Integer.parseInt(EPCData.substring(0,PRE_LENGTH));
+        int validLength = (validLengthHex/10)*16 + (validLengthHex%10);
+
+        if(validLength+2>EPCData.length()){
+            Toast.makeText(mContext, "身份识别码EPC数据有误！", Toast.LENGTH_SHORT).show();
+            return "";
+        }
+        //获取到有效的EPC区数据
+        String validStr = EPCData.substring(2,validLength+2);
+
+        //获取厂家名称代号的十六进制码,TODO:转换为字符型
+        String mid_factoryHex = validStr.substring(0,8);
+        StringBuilder mid_factoryStr = new StringBuilder();
+
+        byte[] mid_factoryBytes = hexStr2Bytes(mid_factoryHex);
+        String mid_fac = new String(mid_factoryBytes);
+        mid_factoryStr.append(mid_fac);
+
+        //获取后边的十六进制码
+        String mid_code = validStr.substring(8, validLength);//8是厂家编号占的位数
+
+        mid_factoryStr.append(mid_code);
+
+        return mid_factoryStr.toString();
+    }
+    /**
+     * bytes字符串转换为Byte值
+     * @param  src Byte字符串，每个Byte之间没有分隔符
+     * @return byte[]
+     */
+    public static byte[] hexStr2Bytes(String src)
+    {
+        int m=0,n=0;
+        int l=src.length()/2;
+        System.out.println(l);
+        byte[] ret = new byte[l];
+        for (int i = 0; i < l; i++)
+        {
+            m=i*2+1;
+            n=m+1;
+            ret[i] = Byte.decode("0x" + src.substring(i*2, m) + src.substring(m,n));
+        }
+        return ret;
     }
 
     private void initSettings() {
@@ -199,15 +307,16 @@ public class RFIDCaptureActivity extends Activity {
                 mReaderHelper.setReader(mSerialPort.getInputStream(),//在函数内部设置了一个等待线程，不听的循环读数据并发送广播
                         mSerialPort.getOutputStream());
                 //连接成功
-                Toast.makeText(this, "串口连接成功", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "串口连接成功", Toast.LENGTH_SHORT).show();
             } catch (Exception e) {
                 Toast.makeText(this, "串口连接失败", Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
                 return false;
             }
         } catch (IOException e) {
-            //Toast.makeText(this, "串口连接准备失败!", Toast.LENGTH_SHORT).show();
-            e.printStackTrace();
+            Toast.makeText(this, "不存在RFID模块,即将退出该页面!", Toast.LENGTH_SHORT).show();
+            finish();
+            //e.printStackTrace();
             return false;
         }
 

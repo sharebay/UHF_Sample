@@ -11,6 +11,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.os.PowerManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -38,15 +39,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends Activity {
-	// ViewPager��google SDk���Դ���һ�����Ӱ���һ���࣬��������ʵ����Ļ����л���
 	// android-support-v4.jar
-	private ViewPager mPager;// ҳ������
-	private List<View> listViews; // Tabҳ���б�
-	private ImageView cursor;// ����ͼƬ
-	private TextView t1, t2, t3;// ҳ��ͷ��
-	private int offset = 0;// ����ͼƬƫ����
-	private int currIndex = 0;// ��ǰҳ�����
-	private int bmpW;// ����ͼƬ���
+	private ViewPager mPager;
+	private List<View> listViews;
+	private ImageView cursor;
+	private TextView t1, t2, t3;
+	private int offset = 0;
+	private int currIndex = 0;
+	private int bmpW;
 
 	private ReaderBase mReader;
 	private ReaderHelper mReaderHelper;
@@ -119,6 +119,11 @@ public class MainActivity extends Activity {
 		itent.addAction(ReaderHelper.BROADCAST_WRITE_DATA);
 
 		lbm.registerReceiver(mRecv, itent);
+
+		//gy.add 20171017
+		PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+		PowerManagerUtils.open(pm, 0x02);
+		PowerManagerUtils.open(pm, 0x0C);
 	}
 
 	private final BroadcastReceiver mRecv = new BroadcastReceiver() {
@@ -337,8 +342,13 @@ public class MainActivity extends Activity {
 							@Override
 							public void onClick(DialogInterface dialog,
 									int which) {
-								getApplication().onTerminate();
 
+								//gy.add 20171017
+								PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+								PowerManagerUtils.close(pm, 0x02);
+								PowerManagerUtils.close(pm, 0x0c);
+
+								getApplication().onTerminate();
 							}
 						})
 				.setNegativeButton(getString(R.string.cancel),

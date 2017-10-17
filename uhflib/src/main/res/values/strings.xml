@@ -273,5 +273,6 @@
     
     <string name="data">数据:</string>
     <string name="check">校验位:</string>
+    <bool name="use_tidy_bar_in_scan_face">true</bool>
     
 </resources>
