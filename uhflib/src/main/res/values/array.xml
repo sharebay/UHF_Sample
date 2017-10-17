@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string-array name="baud_rate">
+		<item>"115200"</item>
+		<item>"38400"</item>
+	</string-array>
+    
+	<string-array name="antenna_list">
+		<item>"天线 1"</item>
+		<item>"天线 2"</item>
+		<item>"天线 3"</item>
+		<item>"天线 4"</item>
+	</string-array>
+	
+	<string-array name="fast_antenna_list">
+		<item>"天线 1"</item>
+		<item>"天线 2"</item>
+		<item>"天线 3"</item>
+		<item>"天线 4"</item>
+		<item>"不选"</item>
+	</string-array>
+
+	<string-array name="return_loss_list">
+		<item>865.50</item>
+		<item>866.00</item>
+		<item>866.50</item>
+		<item>867.00</item>
+		<item>867.50</item>
+		<item>868.00</item>
+		<item>902.00</item>
+		<item>902.50</item>
+		<item>903.00</item>
+		<item>903.50</item>
+		<item>904.00</item>
+		<item>904.50</item>
+		<item>905.00</item>
+		<item>905.50</item>
+		<item>906.00</item>
+		<item>906.50</item>
+		<item>907.00</item>
+		<item>907.50</item>
+		<item>908.00</item>
+		<item>908.50</item>
+		<item>909.00</item>
+		<item>909.50</item>
+		<item>910.00</item>
+		<item>910.50</item>
+		<item>911.00</item>
+		<item>911.50</item>
+		<item>912.00</item>
+		<item>912.50</item>
+		<item>913.00</item>
+		<item>913.50</item>
+		<item>914.00</item>
+		<item>914.50</item>
+		<item>915.00</item>
+		<item>915.50</item>
+		<item>916.00</item>
+		<item>916.50</item>
+		<item>917.00</item>
+		<item>917.50</item>
+		<item>918.00</item>
+		<item>918.50</item>
+		<item>919.00</item>
+		<item>919.50</item>
+		<item>920.00</item>
+		<item>920.50</item>
+		<item>921.00</item>
+		<item>921.50</item>
+		<item>922.00</item>
+		<item>922.50</item>
+		<item>923.00</item>
+		<item>923.50</item>
+		<item>924.00</item>
+		<item>924.50</item>
+		<item>925.00</item>
+		<item>925.50</item>
+		<item>926.00</item>
+		<item>926.50</item>
+		<item>927.00</item>
+		<item>927.50</item>
+		<item>928.00</item>
+	</string-array>
+
+	<string-array name="session_id_list">
+		<item>"S0"</item>
+		<item>"S1"</item>
+		<item>"S2"</item>
+		<item>"S3"</item>
+	</string-array>
+	
+	<string-array name="inventoried_flag_list">
+		<item>"A"</item>
+		<item>"B"</item>
+	</string-array>
+	
+</resources>

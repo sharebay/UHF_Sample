@@ -1,0 +1,569 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+  	android:layout_height="fill_parent"
+  	android:orientation="vertical"
+  	android:background="@drawable/gradient_bg">
+  	
+	<com.uhf.uhf.TitleGoToMain
+        android:id="@+id/title_goto_main"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" />
+	
+	<TextView
+	    android:id="@+id/refresh"
+		android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3.0sp"
+		android:layout_marginRight="10.0sp"
+		android:layout_marginBottom="3.0sp"
+		android:paddingLeft="10.0sp"
+		android:paddingRight="10.0sp"
+		android:gravity="center"
+		android:background="@drawable/button_selector"
+		android:text="@string/refresh"
+		android:textColor="#ff222222"
+		android:textStyle="bold"
+		android:textSize="16.0sp"
+		android:clickable="true"
+		android:layout_alignParentRight="true"
+		android:layout_alignTop="@id/title_goto_main"
+        android:layout_alignBottom="@id/title_goto_main" />
+	
+	<com.uhf.uhf.LogList
+        android:id="@+id/log_list"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+	<ScrollView
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:fadingEdge="vertical"
+	    android:background="#EEEEEE"
+	    android:fillViewport="true"
+	    android:scrollbars="vertical"
+	    android:layout_above="@id/log_list"
+	    android:layout_below="@id/refresh" >
+
+		<LinearLayout
+		    android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical" >
+			
+		    <TextView
+				android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginBottom="5.0dip"
+	            android:layout_marginTop="10.0dip"
+	            android:gravity="center_vertical"
+	            android:paddingLeft="4.0dip"
+	            android:text="@string/tag_access_uid"
+	            android:textColor="#ff222222"
+	            android:textSize="16.0sp" />
+		    
+	    	<LinearLayout
+			    android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:gravity="center_vertical"
+				android:paddingLeft="5.0sp"
+				android:paddingTop="5.0sp"
+				android:paddingRight="5.0sp"
+				android:paddingBottom="10.0sp" >
+				
+				<TextView
+					android:layout_width="wrap_content"
+		         	android:layout_height="wrap_content"
+		         	android:gravity="center_vertical"
+		         	android:text="@string/tag_uid_list_title"
+		         	android:textColor="#ff222222"
+		         	android:textSize="16.0sp" />
+				
+				<TableLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:paddingLeft="5.0sp"
+					android:paddingRight="5.0sp"
+					android:shrinkColumns="0"
+					android:stretchColumns="0" >
+					
+					<TableRow
+						android:id="@+id/table_row_tag_6b_uid_list"
+						android:layout_width="fill_parent"
+						android:background="@drawable/table_item_press_selector"
+						android:paddingBottom="5.0dip"
+						android:paddingTop="5.0dip"
+						android:clickable="true" >
+						
+						<TextView
+							android:id="@+id/tag_6b_uid_list_text"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:gravity="center_vertical"
+							android:includeFontPadding="false"
+							android:paddingLeft="10.0sp"
+							android:paddingTop="2.0sp"
+							android:paddingBottom="2.0sp"
+							android:textColor="#ff222222"
+							android:textStyle="bold"
+							android:textSize="16.0sp" />
+						
+						<ImageView
+							android:layout_width="wrap_content"
+						    android:layout_height="fill_parent"
+						    android:layout_gravity="right"
+						    android:gravity="center_vertical"
+							android:src="@drawable/down" />
+					</TableRow>
+				</TableLayout>
+			</LinearLayout>
+			
+	    	<LinearLayout
+			    android:layout_width="fill_parent"
+				android:layout_height="1dip"
+				android:paddingLeft="5.0sp"
+				android:paddingRight="5.0sp"
+				android:background="#ff555555" />
+		    
+	    	<TextView
+				android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginBottom="5.0dip"
+	            android:layout_marginTop="10.0dip"
+	            android:gravity="center_vertical"
+	            android:paddingLeft="4.0dip"
+	            android:text="@string/tag_write_read"
+	            android:textColor="#ff222222"
+	            android:textSize="16.0sp" />
+		    
+	    	<LinearLayout
+	            android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:gravity="center_vertical"
+				android:layout_marginLeft="10sp"
+				android:layout_marginTop="5sp"
+				android:layout_marginRight="10sp"
+				android:layout_marginBottom="5sp" >
+					
+		        <TextView
+					android:layout_width="wrap_content"
+	            	android:layout_height="wrap_content"
+					android:layout_marginLeft="5.0sp"
+					android:layout_marginTop="5.0sp"
+					android:layout_marginRight="5.0sp"
+					android:layout_marginBottom="5.0sp"
+					android:text="@string/start_add_hex"
+					android:textColor="#ff222222"
+					android:textSize="16.0sp"
+					android:clickable="true" />
+		        
+		        <com.uhf.uhf.HexEditTextBox
+		            android:id="@+id/read_start_addr_text"
+		            android:singleLine="true"
+		            android:layout_width="fill_parent"
+		            android:layout_height="30sp"
+		            android:background="@drawable/editbox_background"
+		            android:gravity="center"
+		            android:inputType="text"
+		            android:digits="0123456789abcdefABCDEF"
+		            android:maxLength="2"
+		            android:textSize="16sp" />
+			        
+		    </LinearLayout>
+		    
+	    	<LinearLayout
+	            android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:gravity="center_vertical"
+				android:layout_marginLeft="10sp"
+				android:layout_marginTop="5sp"
+				android:layout_marginRight="10sp"
+				android:layout_marginBottom="5sp" >
+					
+		        <TextView
+					android:layout_width="wrap_content"
+	            	android:layout_height="wrap_content"
+					android:layout_marginLeft="5.0sp"
+					android:layout_marginTop="5.0sp"
+					android:layout_marginRight="5.0sp"
+					android:layout_marginBottom="5.0sp"
+					android:text="@string/data_read_len"
+					android:textColor="#ff222222"
+					android:textSize="16.0sp"
+					android:clickable="true" />
+		        
+		        <com.uhf.uhf.HexEditTextBox
+		            android:id="@+id/read_data_len_text"
+		            android:singleLine="true"
+		            android:layout_width="fill_parent"
+		            android:layout_height="30sp"
+		            android:background="@drawable/editbox_background"
+		            android:gravity="center"
+		            android:inputType="text"
+		            android:digits="0123456789abcdefABCDEF"
+		            android:maxLength="2"
+		            android:textSize="16sp" />
+			        
+		    </LinearLayout>
+		    
+	    	<LinearLayout
+	            android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:gravity="center_vertical"
+				android:layout_marginLeft="10sp"
+				android:layout_marginTop="5sp"
+				android:layout_marginRight="10sp"
+				android:layout_marginBottom="5sp" >
+					
+		        <TextView
+					android:layout_width="wrap_content"
+	            	android:layout_height="wrap_content"
+					android:layout_marginLeft="5.0sp"
+					android:layout_marginTop="5.0sp"
+					android:layout_marginRight="5.0sp"
+					android:layout_marginBottom="5.0sp"
+					android:text="@string/data_read"
+					android:textColor="#ff222222"
+					android:textSize="16.0sp"
+					android:clickable="true" />
+		        
+		        <com.uhf.uhf.HexEditTextBox
+		            android:id="@+id/read_data_show_text"
+		            android:singleLine="true"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:minHeight="30sp"
+		            android:background="@drawable/readonly_editbox_background"
+		            android:gravity="center_vertical"
+		            android:inputType="text"
+		            android:digits="0123456789abcdefABCDEF"
+		            android:textSize="16sp" />
+			        
+		    </LinearLayout>
+		
+	    	<LinearLayout
+	            android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal" >
+	            
+				<TextView
+				    android:id="@+id/read"
+					android:layout_width="fill_parent"
+	            	android:layout_height="wrap_content"
+					android:layout_marginLeft="20.0sp"
+					android:layout_marginTop="10.0sp"
+					android:layout_marginRight="20.0sp"
+					android:layout_marginBottom="10.0sp"
+					android:paddingTop="10.0sp"
+					android:paddingBottom="10.0sp"
+					android:gravity="center_horizontal"
+					android:background="@drawable/button_selector"
+					android:text="@string/read_tag"
+					android:textColor="#ff222222"
+					android:textStyle="bold"
+					android:textSize="16.0sp"
+					android:clickable="true" />
+			</LinearLayout>
+			
+	    	<LinearLayout
+	            android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:gravity="center_vertical"
+				android:layout_marginLeft="10sp"
+				android:layout_marginTop="5sp"
+				android:layout_marginRight="10sp"
+				android:layout_marginBottom="5sp" >
+					
+		        <TextView
+					android:layout_width="wrap_content"
+	            	android:layout_height="wrap_content"
+					android:layout_marginLeft="5.0sp"
+					android:layout_marginTop="5.0sp"
+					android:layout_marginRight="5.0sp"
+					android:layout_marginBottom="5.0sp"
+					android:text="@string/start_add_hex"
+					android:textColor="#ff222222"
+					android:textSize="16.0sp"
+					android:clickable="true" />
+		        
+		        <com.uhf.uhf.HexEditTextBox
+		            android:id="@+id/write_start_addr_text"
+		            android:singleLine="true"
+		            android:layout_width="fill_parent"
+		            android:layout_height="30sp"
+		            android:background="@drawable/editbox_background"
+		            android:gravity="center"
+		            android:inputType="text"
+		            android:digits="0123456789abcdefABCDEF"
+		            android:maxLength="2"
+		            android:textSize="16sp" />
+			        
+		    </LinearLayout>
+		    
+	    	<LinearLayout
+	            android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:gravity="center_vertical"
+				android:layout_marginLeft="10sp"
+				android:layout_marginTop="5sp"
+				android:layout_marginRight="10sp"
+				android:layout_marginBottom="5sp" >
+					
+		        <TextView
+					android:layout_width="wrap_content"
+	            	android:layout_height="wrap_content"
+					android:layout_marginLeft="5.0sp"
+					android:layout_marginTop="5.0sp"
+					android:layout_marginRight="5.0sp"
+					android:layout_marginBottom="5.0sp"
+					android:text="@string/data_write_len"
+					android:textColor="#ff222222"
+					android:textSize="16.0sp"
+					android:clickable="true" />
+		        
+		        <com.uhf.uhf.HexEditTextBox
+		            android:id="@+id/write_data_len_text"
+		            android:singleLine="true"
+		            android:layout_width="fill_parent"
+		            android:layout_height="30sp"
+		            android:background="@drawable/readonly_editbox_background"
+		            android:gravity="center"
+		            android:inputType="text"
+		            android:digits="0123456789abcdefABCDEF"
+		            android:maxLength="2"
+		            android:textSize="16sp" />
+			        
+		    </LinearLayout>
+
+	    	<LinearLayout
+	            android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:gravity="center_vertical"
+				android:layout_marginLeft="10sp"
+				android:layout_marginTop="5sp"
+				android:layout_marginRight="10sp"
+				android:layout_marginBottom="5sp" >
+					
+		        <TextView
+					android:layout_width="wrap_content"
+	            	android:layout_height="wrap_content"
+					android:layout_marginLeft="5.0sp"
+					android:layout_marginTop="5.0sp"
+					android:layout_marginRight="5.0sp"
+					android:layout_marginBottom="5.0sp"
+					android:text="@string/data_write"
+					android:textColor="#ff222222"
+					android:textSize="16.0sp"
+					android:clickable="true" />
+		        
+		        <com.uhf.uhf.HexEditTextBox
+		            android:id="@+id/write_data_show_text"
+		            android:singleLine="true"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:minHeight="30sp"
+		            android:background="@drawable/editbox_background"
+		            android:gravity="center_vertical"
+		            android:inputType="text"
+		            android:digits="0123456789abcdefABCDEF"
+		            android:textSize="16sp" />
+			        
+		    </LinearLayout>
+		
+	    	<LinearLayout
+	            android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal" >
+	            
+				<TextView
+				    android:id="@+id/write"
+					android:layout_width="fill_parent"
+	            	android:layout_height="wrap_content"
+					android:layout_marginLeft="20.0sp"
+					android:layout_marginTop="10.0sp"
+					android:layout_marginRight="20.0sp"
+					android:layout_marginBottom="10.0sp"
+					android:paddingTop="10.0sp"
+					android:paddingBottom="10.0sp"
+					android:gravity="center_horizontal"
+					android:background="@drawable/button_selector"
+					android:text="@string/write_tag"
+					android:textColor="#ff222222"
+					android:textStyle="bold"
+					android:textSize="16.0sp"
+					android:clickable="true" />
+			</LinearLayout>
+			
+	    	<LinearLayout
+			    android:layout_width="fill_parent"
+				android:layout_height="1dip"
+				android:paddingLeft="5.0sp"
+				android:paddingRight="5.0sp"
+				android:background="#ff555555" />
+	    	
+	    	<TextView
+				android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginBottom="5.0dip"
+	            android:layout_marginTop="10.0dip"
+	            android:gravity="center_vertical"
+	            android:paddingLeft="4.0dip"
+	            android:text="@string/tag_lock"
+	            android:textColor="#ff222222"
+	            android:textSize="16.0sp" />
+        	
+	    	<LinearLayout
+	            android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:gravity="center_vertical"
+				android:layout_marginLeft="10sp"
+				android:layout_marginTop="5sp"
+				android:layout_marginRight="10sp"
+				android:layout_marginBottom="5sp" >
+					
+		        <TextView
+					android:layout_width="wrap_content"
+	            	android:layout_height="wrap_content"
+					android:layout_marginLeft="5.0sp"
+					android:layout_marginTop="5.0sp"
+					android:layout_marginRight="5.0sp"
+					android:layout_marginBottom="5.0sp"
+					android:text="@string/wp_ever_addr"
+					android:textColor="#ff222222"
+					android:textSize="16.0sp"
+					android:clickable="true" />
+		        
+		        <com.uhf.uhf.HexEditTextBox
+		            android:id="@+id/tag_6b_wp_ever_addr_text"
+		            android:singleLine="true"
+		            android:layout_width="fill_parent"
+		            android:layout_height="30sp"
+		            android:background="@drawable/editbox_background"
+		            android:gravity="center"
+		            android:inputType="text"
+		            android:digits="0123456789abcdefABCDEF"
+		            android:maxLength="2"
+		            android:textSize="16sp" />
+			        
+		    </LinearLayout>
+		    
+	    	<LinearLayout
+	            android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:gravity="center_vertical"
+				android:layout_marginLeft="10sp"
+				android:layout_marginTop="5sp"
+				android:layout_marginRight="10sp"
+				android:layout_marginBottom="5sp" >
+					
+		        <TextView
+					android:layout_width="wrap_content"
+	            	android:layout_height="wrap_content"
+					android:layout_marginLeft="5.0sp"
+					android:layout_marginTop="5.0sp"
+					android:layout_marginRight="5.0sp"
+					android:layout_marginBottom="5.0sp"
+					android:text="@string/get_wp_ever_addr"
+					android:textColor="#ff222222"
+					android:textSize="16.0sp"
+					android:clickable="true" />
+		        
+		        <com.uhf.uhf.HexEditTextBox
+		            android:id="@+id/tag_6b_get_wp_ever_addr_text"
+		            android:singleLine="true"
+		            android:layout_width="80sp"
+		            android:layout_height="30sp"
+		            android:background="@drawable/editbox_background"
+		            android:gravity="center"
+		            android:inputType="text"
+		            android:digits="0123456789abcdefABCDEF"
+		            android:maxLength="2"
+		            android:textSize="16sp" />
+		        
+		        <EditText
+		            android:id="@+id/tag_6b_wp_ever_status_text"
+		            android:singleLine="true"
+		            android:layout_width="fill_parent"
+		            android:layout_height="30sp"
+		            android:layout_marginLeft="10sp"
+		            android:background="@drawable/readonly_editbox_background"
+		            android:gravity="center"
+		            android:inputType="text"
+		            android:textSize="16sp" />
+			        
+		    </LinearLayout>
+		    
+	    	<LinearLayout
+	            android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal" >
+				<TextView
+				    android:id="@+id/set_wp_ever"
+					android:layout_width="fill_parent"
+	            	android:layout_height="wrap_content"
+	            	android:layout_weight="1.0"
+					android:layout_marginLeft="20.0sp"
+					android:layout_marginTop="10.0sp"
+					android:layout_marginRight="20.0sp"
+					android:layout_marginBottom="10.0sp"
+					android:paddingTop="10.0sp"
+					android:paddingBottom="10.0sp"
+					android:gravity="center_horizontal"
+					android:background="@drawable/button_selector"
+					android:text="@string/set_wp_ever"
+					android:textColor="#ff222222"
+					android:textStyle="bold"
+					android:textSize="16.0sp"
+					android:clickable="true" />
+				
+				<TextView
+				    android:id="@+id/get_wp_ever"
+					android:layout_width="fill_parent"
+	            	android:layout_height="wrap_content"
+	            	android:layout_weight="1.0"
+					android:layout_marginLeft="20.0sp"
+					android:layout_marginTop="10.0sp"
+					android:layout_marginRight="20.0sp"
+					android:layout_marginBottom="10.0sp"
+					android:paddingTop="10.0sp"
+					android:paddingBottom="10.0sp"
+					android:gravity="center_horizontal"
+					android:background="@drawable/button_selector"
+					android:text="@string/get_wp_ever"
+					android:textColor="#ff222222"
+					android:textStyle="bold"
+					android:textSize="16.0sp"
+					android:clickable="true" />
+			</LinearLayout>
+			
+
+	    	<LinearLayout
+	            android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:gravity="center_vertical"
+				android:layout_marginLeft="10sp"
+				android:layout_marginTop="5sp"
+				android:layout_marginRight="10sp"
+				android:layout_marginBottom="5sp" >
+			        
+		    </LinearLayout>
+		    
+	    	<LinearLayout
+	            android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal" >
+			</LinearLayout>
+
+		</LinearLayout>
+	</ScrollView>
+</RelativeLayout>
+

@@ -1,0 +1,148 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+  	android:layout_height="fill_parent"
+  	android:orientation="vertical"
+  	android:background="@drawable/gradient_bg">
+  	
+	<com.uhf.uhf.TitleGoToMain
+            android:id="@+id/title_goto_main"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content" />
+	
+	<com.uhf.uhf.LogList
+           android:id="@+id/log_list"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+           android:layout_alignParentBottom="true" />
+	
+	<ScrollView
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:fadingEdge="vertical"
+	    android:background="#EEEEEE"
+	    android:fillViewport="true"
+	    android:scrollbars="vertical"
+	    android:layout_above="@id/log_list"
+	    android:layout_below="@id/title_goto_main" >
+
+		<LinearLayout
+		    android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical" >
+			
+		    <TextView
+				android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="10.0dip"
+	            android:gravity="center_vertical"
+	            android:paddingLeft="4.0dip"
+	            android:text="@string/setting_antenna"
+	            android:textColor="#ff222222"
+	            android:textSize="16.0sp" />
+		    
+		    <LinearLayout
+			    android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:gravity="center_vertical"
+				android:layout_marginTop="10sp"
+				android:paddingLeft="10.0sp"
+				android:paddingTop="5.0sp"
+				android:paddingRight="10.0sp"
+				android:paddingBottom="5.0sp" >
+				
+				<TextView
+					android:layout_width="wrap_content"
+		         	android:layout_height="wrap_content"
+		         	android:gravity="center_vertical"
+		         	android:paddingLeft="4.0dip"
+		         	android:text="@string/antenna_port"
+		         	android:textColor="#ff222222"
+		         	android:textSize="16.0sp" />
+		    
+				<TableLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:paddingLeft="10.0sp"
+					android:paddingRight="10.0sp"
+					android:shrinkColumns="0"
+					android:stretchColumns="0" >
+					<TableRow
+						android:id="@+id/table_row_spiner_antenna"
+						android:layout_width="fill_parent"
+						android:background="@drawable/table_item_press_selector"
+						android:paddingBottom="5.0dip"
+						android:paddingTop="5.0dip"
+						android:clickable="true" >
+						
+						<TextView
+							android:id="@+id/antenna_text"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:gravity="center_vertical"
+							android:includeFontPadding="false"
+							android:paddingLeft="10.0sp"
+							android:paddingTop="2.0sp"
+							android:paddingBottom="2.0sp"
+							android:textColor="#ff222222"
+							android:textStyle="bold"
+							android:textSize="16.0sp" />
+						
+						<ImageView
+							android:layout_width="wrap_content"
+						    android:layout_height="fill_parent"
+						    android:layout_gravity="right"
+						    android:gravity="center_vertical"
+							android:src="@drawable/down" />
+					</TableRow>
+				</TableLayout>
+			</LinearLayout>
+				
+			<LinearLayout
+	            android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal" >
+	            
+				<TextView
+				    android:id="@+id/get"
+					android:layout_width="fill_parent"
+	            	android:layout_height="wrap_content"
+	            	android:layout_weight="1.0"
+					android:layout_marginLeft="20.0sp"
+					android:layout_marginTop="20.0sp"
+					android:layout_marginRight="20.0sp"
+					android:layout_marginBottom="5.0sp"
+					android:paddingTop="10.0sp"
+					android:paddingBottom="10.0sp"
+					android:gravity="center_horizontal"
+					android:background="@drawable/button_selector"
+					android:text="@string/get"
+					android:textColor="#ff222222"
+					android:textStyle="bold"
+					android:textSize="16.0sp"
+					android:clickable="true" />
+				
+				<TextView
+				    android:id="@+id/set"
+					android:layout_width="fill_parent"
+	            	android:layout_height="wrap_content"
+	            	android:layout_weight="1.0"
+					android:layout_marginLeft="20.0sp"
+					android:layout_marginTop="20.0sp"
+					android:layout_marginRight="20.0sp"
+					android:layout_marginBottom="5.0sp"
+					android:paddingTop="10.0sp"
+					android:paddingBottom="10.0sp"
+					android:gravity="center_horizontal"
+					android:background="@drawable/button_selector"
+					android:text="@string/set"
+					android:textColor="#ff222222"
+					android:textStyle="bold"
+					android:textSize="16.0sp"
+					android:clickable="true" />
+			
+			</LinearLayout>
+		</LinearLayout>
+	</ScrollView>
+</RelativeLayout>
+

@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <drawable name="clr_normal">#666666</drawable>  
+    <drawable name="clr_pressed">#333333</drawable>
+    
+    <drawable name="list_normal">#00000000</drawable>  
+    <drawable name="list_pressed">#FF333333</drawable>  
+    
+    <string name="app_name11">UHFDemo</string>
+    <string name="app_name">UHFlib</string>
+    <string name="menu_settings">Settings</string>
+    
+	<string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="goon">继续</string>
+    <string name="switchwifi">切换</string>
+	<string name="alert_diag_title">提示</string>
+	<string name="are_you_sure_to_exit">确认要退出吗？</string>
+    
+    <string name="tab_title1">设置</string>
+    <string name="tab_title2">标签测试</string>
+    <string name="tab_title3">串口监控</string>
+    
+	<string name="connect_rs232">"串口连接"</string>
+	<string name="connect_tcp_ip">"TCP/IP 连接"</string>
+    <string name="connect_bluetooth">"蓝牙连接"</string>
+    <string name="connect">"立即连接"</string>
+    
+    <string name="connect_tcp_ip_address">"IP:"</string>
+    <string name="connect_tcp_ip_port">"端口:"</string>
+    
+    <string name="com_port">串口号:</string>
+    <string name="baud_rate">波特率:</string>
+    <string name="com_port_usb">"USB串口(FT312D)"</string>
+    
+    <string name="rs232_error">"串口参数设置错误"</string>
+    
+    <string name="error_configuration">请先配置</string>
+    <string name="error_security">该串口号没有读写权限</string>
+    <string name="error_unknown">打开失败，未知错误</string>
+
+    <string name="scanning">正在搜索设备</string>
+    <string name="select_device">选择要连接的设备</string>
+    <string name="none_paired">尚无配对设备</string>
+    <string name="none_found">未发现设备</string>
+    <string name="title_paired_devices">已配对的设备</string>
+    <string name="title_other_devices">其他可用设备</string>
+    <string name="button_scan">搜索设备</string>
+    
+    <string name="back_to_main">返回主页面</string>
+
+	<string name="open_caption">操作记录(点击展开)</string>
+    <string name="close_caption">操作记录(点击隐藏)</string>
+
+    <string name="setting_reset">复位读写器</string>
+    <string name="setting_base">基本参数设置</string>
+    <string name="setting_reader_address">读写器RS-485地址(HEX)</string>
+    <string name="setting_identifier">读写器识别标识(12字节)</string>
+    <string name="setting_firmware_version">固件版本</string>
+    <string name="setting_temperature">工作温度</string>
+    <string name="setting_gpio">读写GPIO</string>
+    <string name="setting_set_gpio">写GPIO(GPIO3,GPIO4):</string>
+    <string name="setting_get_gpio">读GPIO(GPIO1,GPIO2):</string>
+    <string name="setting_gpio_1">高</string>
+    <string name="setting_gpio_0">低</string>
+    <string name="setting_beeper">蜂鸣器状态</string>
+    <string name="beeper_quiet">安静</string>
+    <string name="beeper_all">存盘后鸣响</string>
+    <string name="beeper_one">每读到一张标签鸣响(影响速度，仅供测试)</string>
+    
+    <string name="setting_rf">射频参数设置</string>
+    <string name="setting_drm_status">DRM状态</string>
+    <string name="setting_out_power">射频输出功率</string>
+    <string name="dBm">dBm</string>
+    <string name="setting_antenna">切换当前工作天线</string>
+    <string name="antenna_port">天线端口:</string>
+    <string name="setting_return_loss">测量回波损耗(Return Loss)</string>
+    <string name="setting_ant_detector">天线灵敏度</string>
+    <string name="ant_detector">回波损耗阈值:</string>
+    <string name="desc">说明:</string>
+    <string name="desc_detector_1">1.读写标签时系统自动测量天线端口的回波损耗(Return Loss)。</string>
+    <string name="desc_detector_2">2.为保护设备，检测到回波损耗大于此阈值将报错并停止读写标签操作。</string>
+    <string name="desc_detector_3">3.此阈值越大对天线端口阻抗匹配要求越高，设为0关闭此功能。</string>
+    
+    <string name="setting_monza">"标签快速读取TID功能"</string>
+    <string name="desc_monza_1">1.只有Impinj Monza系列标签的部分型号支持快速读TID功能。</string>
+    <string name="desc_monza_2">2.若标签不支持快速读TID请关闭此功能。</string>
+    
+    <string name="setting_region">射频频谱 </string>
+    <string name="region_custom">自定义频点</string>
+    <string name="region_default">默认频点</string>
+    <string name="region_range">范围:</string>
+    <string name="freq_start">起始频率:</string>
+    <string name="freq_end">截止频率:</string>
+    <string name="freq_interval">频道间隔:</string>
+    <string name="freq_nums">频点数量:</string>
+    <string name="freq_unit">个</string>
+    
+    <string name="setting_profile">射频通讯链路 </string>
+    <string name="profile_option0">"配置0  Tari 25uS; FM0 40KHz"</string>
+    <string name="profile_option1">"配置1(推荐且为默认)  Tari 25uS; Miller 4 250KHz"</string>
+    <string name="profile_option2">"配置2  Tari 25uS; Miller 4 300KHz" </string>
+    <string name="profile_option3">"配置3  Tari 6.25uS; FM0 400KHz" </string>
+    
+    <string name="iso180006cinventory">6C 标签</string>
+    <string name="iso180006binventory">6B 标签</string>
+    <string name="inventory_real_mode">盘存标签(实时模式)</string>
+    <string name="inventory_buffer_mode">盘存标签(缓存模式)</string>
+    <string name="inventory_fast4ant_mode">快速4天线盘存</string>
+    <string name="iso180006Binventory">6B盘存标签</string>
+    
+    <string name="real_session">自定义Session参数</string>
+	<string name="select_antenna">天线选择</string>
+	<string name="antenna_1">天线1</string>
+	<string name="antenna_2">天线2</string>
+	<string name="antenna_3">天线3</string>
+	<string name="antenna_4">天线4</string>
+	<string name="real_round">每条命令的盘存次数:</string>
+
+    <string name="access_tag">存取标签</string>
+    
+    <string name="list_antenna_port">"天线号"</string>
+    
+    <string name="real_list_times">"识别次数"</string>
+    <string name="real_list_freq">"载波频率"</string>
+    
+    <string name="buffer_list_times">"识别次数"</string>
+    <string name="buffer_round">每条命令的盘存次数:</string>
+
+    <string name="tag_list">标签列表</string>
+    <string name="open_tag_list">标签列表(点击展开)</string>
+    <string name="close_tag_list">标签列表(点击隐藏)</string>
+    
+    <string name="tags_count">"标签数目(不重复): "</string>
+    <string name="tags_count_unit">" 个"</string>
+    <string name="tags_total">"累计数据: "</string>
+    <string name="tags_total_unit">" 条"</string>
+    <string name="tags_speed">"识别速度: "</string>
+	<string name="tags_speed_unit">" 个/秒"</string>
+    <string name="tags_time">"运行时间: "</string>
+    <string name="tags_time_unit">" 毫秒"</string>
+    <string name="tags_times_unit">" 次"</string>
+    
+    <string name="tag_get_buffer">读取缓存</string>
+    <string name="tag_get_clear_buffer">读取并清空缓存</string>
+    <string name="tag_clear_buffer">清空缓存</string>
+    <string name="tag_query_buffer">查询标签数</string>
+    
+    <string name="fast4ant_set">"参数设置"</string>
+    <string name="fast4ant_delay">"天线间延时(mS): "</string>
+    <string name="fast4ant_repeat">"循环次数: ""</string>
+    
+    <string name="fast4ant_list_times">"识别次数"</string>
+    <string name="fast4ant_list_freq">"载波频率"</string>
+    
+    <string name="tag_access">"标签操作"</string>
+    <string name="tag_list_title">"标签列表: "</string>
+    <string name="tag_access_epc">"选定操作标签"</string>
+    <string name="tag_write_read">"读写标签"</string>
+    <string name="tag_lock">"锁定标签"</string>
+    <string name="tag_kill">"销毁标签"</string>
+    
+    <string name="area_password">"密码区"</string>
+    <string name="area_epc">"EPC区"</string>
+    <string name="area_tid">"TID区"</string>
+    <string name="area_user">"USER区"</string>
+    
+    <string name="area_access_password">"访问密码区"</string>
+    <string name="area_kill_password">"销毁密码区"</string>
+    
+    <string name="lock_free">"开放"</string>
+    <string name="lock_lock">"锁定"</string>
+    <string name="lock_free_ever">"永久开放"</string>
+    <string name="lock_lock_ever">"永久锁定"</string>
+    
+    <string name="password">"密码(HEX): "</string>
+    <string name="start_add">"起始地址(WORD): "</string>
+    <string name="data_length">"数据长度(WORD): "</string>
+    <string name="data_write">"写入数据(HEX): "</string>
+    
+    <string name="tag_uid_list_title">"UID列表: "</string>
+    <string name="tag_access_uid">"选定操作UID"</string>
+    <string name="data_read">"读取数据(HEX): "</string>
+	<string name="data_read_len">"读取长度(HEX): "</string>
+	<string name="data_write_len">"写入长度(HEX): "</string>
+	<string name="write_round">"循环写入(次): "</string>
+	<string name="write_round_ok">"成功写入(次): "</string>
+	<string name="start_add_hex">"起始地址(HEX): "</string>
+    
+    <string name="wp_ever_addr">"永久写保护(HEX地址): "</string>
+    <string name="get_wp_ever_addr">"查询永久写保护状态(HEX地址): "</string>
+    <string name="set_wp_ever">"永久写保护"</string>
+    <string name="get_wp_ever">"查询状态"</string>
+    
+    <string name="locked">"已锁定"</string>
+    <string name="unlocked">"未锁定"</string>
+    
+    
+    <string name="setting_monitor">开启监控</string>
+    
+    <string name="refresh">刷新界面</string>
+    
+    <string name="select">选择</string>
+    <string name="read_tag">读标签</string>
+    <string name="write_tag">写标签</string>
+    <string name="lock_tag">锁定标签</string>
+    <string name="kill_tag">销毁标签</string>
+    
+    <string name="access_list_data_len">"数据长度"</string>
+    <string name="access_list_data">"数据"</string>
+    <string name="access_list_times">"操作次数"</string>
+
+    <string name="save">保存</string>
+    <string name="unsave">不保存</string>
+    
+    <string name="open">打开</string>
+    <string name="close">关闭</string>
+	<string name="set">设置</string>
+	<string name="get">读取</string>
+	<string name="send">发送</string>
+	<string name="start_inventory">开始存盘</string>
+	<string name="stop_inventory">结束存盘</string>
+	
+	<string name="measure">测量</string>
+	
+	
+	<string name="ip_error">IP格式错误(192.168.0.178)</string>
+	<string name="ip_null">IP不能为空</string>
+	<string name="port_null">端口号不能为空</string>
+	<string name="ip_connecting">TCP正在连接</string>
+	<string name="ip_connect_timeout">TCP连接超时</string>
+	<string name="ip_connect_fail">TCP连接错误</string>
+	<string name="ip_connect_success">TCP连接成功</string>
+	
+	<string name="no_bluetooth">此机型不支持蓝牙。</string>
+	<string name="bluetooth_connecting">蓝牙正在连接</string>
+	<string name="bluetooth_connect_timeout">蓝牙连接超时</string>
+	<string name="bluetooth_connect_fail">蓝牙连接错误</string>
+	<string name="bluetooth_connect_success">蓝牙连接成功</string>
+	
+	
+	<string name="antenna_empty">至少需要选中一个天线</string>
+    <string name="repeat_empty">重复次数不能为空</string>
+    <string name="repeat_min">重复次数至少为1</string>
+    
+    
+    <string name="fast4ant_error">至少选择一个天线至少轮询一次,重复次数至少一次</string>
+    <string name="fast4ant_empty">所有内容均不能为空</string>
+    
+    <string name="param_unknown_error">参数未知错误</string>
+    <string name="param_start_addr_error">起始地址格式错误</string>
+    <string name="param_lockpassword_error">密码格式错误</string>
+    <string name="param_killpassword_error">密码格式错误</string>
+    <string name="param_password_error">密码格式错误</string>
+    <string name="param_data_len_error">数据长度格式错误</string>
+    <string name="param_data_error">写入数据格式错误</string>
+    
+    <string name="uid_select">请选择一个UID</string>
+    <string name="uid_error">UID格式错误,请重新选择</string>
+    
+    <string name="param_read_start_addr_error">写入起始地址格式错误</string>
+    <string name="param_read_data_len_error">写入数据长度格式错误</string>
+    
+    <string name="param_write_start_addr_error">读取起始地址格式错误</string>
+    
+    <string name="param_write_data_error">写入数据格式错误</string>
+    
+    <string name="param_wp_ever_addr_error">永久写保护地址格式错误</string>
+    <string name="param_get_wp_ever_addr_error">查询永久写保护状态地址格式错误</string>
+    
+    <string name="data">数据:</string>
+    <string name="check">校验位:</string>
+    
+</resources>

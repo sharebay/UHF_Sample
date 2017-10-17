@@ -1,0 +1,144 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/gradient_bg">
+    
+    <LinearLayout
+	    android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:gravity="center_vertical"
+		android:layout_marginTop="10sp"
+		android:paddingLeft="10.0sp"
+		android:paddingTop="5.0sp"
+		android:paddingRight="10.0sp"
+		android:paddingBottom="5.0sp" >
+		
+		<TextView
+			android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:gravity="center_vertical"
+        	android:paddingLeft="4.0dip"
+        	android:text="@string/com_port"
+        	android:textColor="#ff222222"
+        	android:textSize="16.0sp" />
+
+		<TableLayout
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:paddingLeft="10.0sp"
+			android:paddingRight="10.0sp"
+			android:shrinkColumns="0"
+			android:stretchColumns="0" >
+			<TableRow
+				android:id="@+id/table_row_spiner_comport"
+				android:layout_width="fill_parent"
+				android:background="@drawable/table_item_press_selector"
+				android:paddingBottom="5.0dip"
+				android:paddingTop="5.0dip"
+				android:clickable="true" >
+				
+				<TextView
+					android:id="@+id/comport_text"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:gravity="center_vertical"
+					android:includeFontPadding="false"
+					android:paddingLeft="10.0sp"
+					android:paddingTop="2.0sp"
+					android:paddingBottom="2.0sp"
+					android:textColor="#ff222222"
+					android:textStyle="bold"
+					android:textSize="16.0sp" />
+				
+				<ImageView
+					android:layout_width="wrap_content"
+				    android:layout_height="fill_parent"
+				    android:layout_gravity="right"
+				    android:gravity="center_vertical"
+					android:src="@drawable/down" />
+			</TableRow>
+		</TableLayout>
+	</LinearLayout>
+	
+    <LinearLayout
+	    android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:gravity="center_vertical"
+		android:layout_marginTop="10sp"
+		android:paddingLeft="10.0sp"
+		android:paddingTop="5.0sp"
+		android:paddingRight="10.0sp"
+		android:paddingBottom="5.0sp" >
+		
+		<TextView
+			android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:gravity="center_vertical"
+        	android:paddingLeft="4.0dip"
+        	android:text="@string/baud_rate"
+        	android:textColor="#ff222222"
+        	android:textSize="16.0sp" />
+
+		<TableLayout
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:paddingLeft="10.0sp"
+			android:paddingRight="10.0sp"
+			android:shrinkColumns="0"
+			android:stretchColumns="0" >
+			<TableRow
+				android:id="@+id/table_row_spiner_baudrate"
+				android:layout_width="fill_parent"
+				android:background="@drawable/table_item_press_selector"
+				android:paddingBottom="5.0dip"
+				android:paddingTop="5.0dip"
+				android:clickable="true" >
+				
+				<TextView
+					android:id="@+id/baudrate_text"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:gravity="center_vertical"
+					android:includeFontPadding="false"
+					android:paddingLeft="10.0sp"
+					android:paddingTop="2.0sp"
+					android:paddingBottom="2.0sp"
+					android:textColor="#ff222222"
+					android:textStyle="bold"
+					android:textSize="16.0sp" />
+				
+				<ImageView
+					android:layout_width="wrap_content"
+				    android:layout_height="fill_parent"
+				    android:layout_gravity="right"
+				    android:gravity="center_vertical"
+					android:src="@drawable/down" />
+			</TableRow>
+		</TableLayout>
+	</LinearLayout>
+    
+	<TextView
+	    android:id="@+id/textview_connect"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="20.0sp"
+		android:layout_marginTop="20.0sp"
+		android:layout_marginRight="20.0sp"
+		android:layout_marginBottom="5.0sp"
+		android:paddingTop="10.0sp"
+		android:paddingBottom="10.0sp"
+		android:gravity="center_horizontal"
+		android:background="@drawable/button_selector"
+		android:text="@string/connect"
+		android:textColor="#ff222222"
+		android:textStyle="bold"
+		android:textSize="20.0sp"
+		android:clickable="true" />
+
+</LinearLayout>
+

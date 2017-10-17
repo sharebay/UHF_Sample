@@ -1,0 +1,93 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/gradient_bg">
+    
+    <LinearLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:gravity="center_vertical|left"
+	    android:layout_marginTop="5.0dip" >
+    
+		<TextView
+			android:layout_width="60sp"
+			android:layout_height="wrap_content"
+	        android:layout_marginLeft="10.0dip"
+	        android:layout_marginTop="5.0dip"
+	        android:layout_marginRight="20.0dip"
+	        android:layout_marginBottom="5.0dip"
+	        android:gravity="center_vertical|right"
+	        android:paddingLeft="10.0dip"
+	        android:text="@string/connect_tcp_ip_address"
+	        android:textColor="#ff222222"
+	        android:textSize="16.0sp" />
+		
+		<EditText
+	        android:id="@+id/connect_tcp_ip_address_text"
+	        android:singleLine="true"
+	        android:layout_width="200sp"
+	        android:layout_height="fill_parent"
+	        android:background="@drawable/editbox_background"
+	        android:gravity="center_vertical|center_horizontal"
+	        android:inputType="text"
+	        android:digits="0123456789."
+	        android:textSize="16sp" />
+
+	</LinearLayout>
+
+    <LinearLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:gravity="center_vertical|left"
+	    android:layout_marginTop="5.0dip" >
+    
+		<TextView
+			android:layout_width="60sp"
+			android:layout_height="wrap_content"
+	        android:layout_marginLeft="10.0dip"
+	        android:layout_marginTop="5.0dip"
+	        android:layout_marginRight="20.0dip"
+	        android:layout_marginBottom="5.0dip"
+	        android:gravity="center_vertical|right"
+	        android:paddingLeft="10.0dip"
+	        android:text="@string/connect_tcp_ip_port"
+	        android:textColor="#ff222222"
+	        android:textSize="16.0sp" />
+		
+		<EditText
+	        android:id="@+id/connect_tcp_ip_port_text"
+	        android:singleLine="true"
+	        android:layout_width="100sp"
+	        android:layout_height="fill_parent"
+	        android:background="@drawable/editbox_background"
+	        android:gravity="center_vertical|center_horizontal"
+	        android:inputType="number"
+	        android:textSize="16sp" />
+
+	</LinearLayout>
+    
+	<TextView
+	    android:id="@+id/textview_connect"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="20.0sp"
+		android:layout_marginTop="50.0sp"
+		android:layout_marginRight="20.0sp"
+		android:layout_marginBottom="5.0sp"
+		android:paddingTop="10.0sp"
+		android:paddingBottom="10.0sp"
+		android:gravity="center_horizontal"
+		android:background="@drawable/button_selector"
+		android:text="@string/connect"
+		android:textColor="#ff222222"
+		android:textStyle="bold"
+		android:textSize="20.0sp"
+		android:clickable="true" />
+
+</LinearLayout>
+

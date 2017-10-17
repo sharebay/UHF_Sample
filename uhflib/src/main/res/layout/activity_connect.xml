@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/gradient_bg">
+
+	<TextView
+		android:id="@+id/textview_connect_tcp_ip"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="20.0sp"
+		android:layout_marginTop="5.0sp"
+		android:layout_marginRight="20.0sp"
+		android:layout_marginBottom="5.0sp"
+		android:paddingTop="10.0sp"
+		android:paddingBottom="10.0sp"
+		android:gravity="center_horizontal"
+		android:background="@drawable/button_selector"
+		android:text="@string/connect_tcp_ip"
+		android:textColor="#ff222222"
+		android:textStyle="bold"
+		android:textSize="20.0sp"
+		android:clickable="true" />
+	
+	<TextView
+		android:id="@+id/textview_connect_bluetooth"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="20.0sp"
+		android:layout_marginTop="5.0sp"
+		android:layout_marginRight="20.0sp"
+		android:layout_marginBottom="5.0sp"
+		android:paddingTop="10.0sp"
+		android:paddingBottom="10.0sp"
+		android:gravity="center_horizontal"
+		android:background="@drawable/button_selector"
+		android:text="@string/connect_bluetooth"
+		android:textColor="#ff222222"
+		android:textStyle="bold"
+		android:textSize="20.0sp"
+		android:clickable="true" />
+	
+	<TextView
+	    android:id="@+id/textview_connect_rs232"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="20.0sp"
+		android:layout_marginTop="5.0sp"
+		android:layout_marginRight="20.0sp"
+		android:layout_marginBottom="5.0sp"
+		android:paddingTop="10.0sp"
+		android:paddingBottom="10.0sp"
+		android:gravity="center_horizontal"
+		android:background="@drawable/button_selector"
+		android:text="@string/connect_rs232"
+		android:textColor="#ff222222"
+		android:textStyle="bold"
+		android:textSize="20.0sp"
+		android:clickable="true" />
+
+</LinearLayout>
+
