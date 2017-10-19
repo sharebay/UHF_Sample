@@ -38,7 +38,6 @@ import com.uhf.reader.helper.ReaderSetting;
 import java.util.ArrayList;
 import java.util.List;
 
-//unused
 public class MainActivity extends Activity {
 	// android-support-v4.jar
 	private ViewPager mPager;
