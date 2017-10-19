@@ -286,12 +286,18 @@ public class ConnectRs232 extends Activity {
 		if (null != value && !"".equals(value)) {
 
 			String[] split = value.split("[_,-]");
-			if (split.length == 4) {
+
+            //gy.modify 20171017
+			/*if (split.length == 4) {
 				product = new Product();
 				product.Playform = split[1];
 				product.Type = split[2];
 				product.Version = split[3];
-			}
+			}*/
+            product = new Product();
+            product.Playform = split[1];
+            product.Type = split[2];
+            product.Version = split[split.length - 1];
 		}
 
 		return product;

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.PowerManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.Menu;
@@ -23,6 +24,7 @@ import com.uhf.reader.base.ReaderBase;
 import com.uhf.reader.helper.InventoryBuffer;
 import com.uhf.reader.helper.ReaderHelper;
 import com.uhf.reader.helper.ReaderSetting;
+import com.uhf.uhf.PowerManagerUtils;
 import com.uhf.uhf.TagRealList;
 import com.uhf.uhf.serialport.SerialPort;
 import com.uhf.uhf.tagpage.RealListAdapter;
@@ -56,6 +58,8 @@ public class RFIDCaptureActivity extends Activity {
     private RealListAdapter mRealListAdapter;
     private ListView mTagRealList;
 
+    PowerManager pm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +67,7 @@ public class RFIDCaptureActivity extends Activity {
         //Toast.makeText(this, "test="+ new GyFunction().getString(), Toast.LENGTH_SHORT).show();
         getActionBar().setDisplayHomeAsUpEnabled(true);
         //getActionBar().setDisplayShowHomeEnabled(true);
+        pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
 
         this.mContext = this;
         initView();
@@ -259,6 +264,15 @@ public class RFIDCaptureActivity extends Activity {
         mHandler.removeCallbacks(mRefreshRunnable);
     }
 
+    private void prepareScan(){
+        PowerManagerUtils.open(pm, 0x02);
+        PowerManagerUtils.open(pm, 0x0C);
+    }
+    private void afterStop(){
+        PowerManagerUtils.close(pm, 0x02);
+        PowerManagerUtils.close(pm, 0x0c);
+    }
+
     /*初始化读写器*/
     private void initReader() {
         try {
@@ -285,6 +299,9 @@ public class RFIDCaptureActivity extends Activity {
         itent.addAction(ReaderHelper.BROADCAST_REFRESH_READER_SETTING);
         itent.addAction("gy_guangbo");
         lbm.registerReceiver(mRecv, itent);
+
+        //gy.add 20171019
+        prepareScan();
     }
 
     /*通过串口连接到扫描设备*/
@@ -419,6 +436,9 @@ public class RFIDCaptureActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         stopScan();
+
+        //gy.add 20171019
+        afterStop();
     }
 
     /*刷新列表的数据*/
